@@ -19,4 +19,4 @@ compile_commands.json
 
 build/
 
-src/contrib/googletest*
+src/contrib/googletest*/
