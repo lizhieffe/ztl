@@ -25,12 +25,12 @@ class HttpHeaderImpl : public HttpHeader {
       index = line.find(':', 0);
       end = line.find('\r', 0);
       if (index == std::string::npos || end == std::string::npos ||
-          end - index <=1) {
-        std::cerr << "Error: the HTTP header cannot be parsed.";
+          end - index <= 1) {
+        std::cerr << "Error: the HTTP header cannot be parsed." << std::endl;
         return false;
       }
       std::string key = line.substr(0, index);
-      std::string value = line.substr(index + 2, end);
+      std::string value = line.substr(index + 2, end - index - 2);
       SetByStr(key, value);
     }
     return true;
@@ -75,4 +75,9 @@ class HttpHeaderImpl : public HttpHeader {
 };
 
 }  // namespace
+
+std::unique_ptr<HttpHeader> NewHttpHeader() {
+  return std::unique_ptr<HttpHeader>(new HttpHeaderImpl);
+}
+
 }  // namespace ztl

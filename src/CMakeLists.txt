@@ -82,10 +82,11 @@ target_link_libraries(${PROJECT}
 ######################################
 if (test)
   enable_testing()
-  add_executable(${PROJECT}_test ${source_files})
+  add_executable(${PROJECT}_test test_main.cc)
   target_link_libraries(${PROJECT}_test
                         ${PROJECT}_lib
                         network_test
+                        gtest
                         gtest_main)
   add_test(NAME ${PROJECT}_test
           COMMAND ${PROJECT}_test)

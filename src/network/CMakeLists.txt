@@ -10,4 +10,9 @@ SET(network_test_src_files
     http_header_test.cc)
 
 ADD_LIBRARY(network ${network_src_files})
+
 ADD_LIBRARY(network_test ${network_test_src_files})
+target_link_libraries(network_test
+                      network
+                      gtest
+                      gtest_main)

@@ -1,6 +1,7 @@
 #ifndef ZTL_HTTP_HEADER
 #define ZTL_HTTP_HEADER
 
+#include <memory>
 #include <string>
 
 namespace ztl {
@@ -23,6 +24,8 @@ class HttpHeader {
   virtual bool GetByStr(const std::string& key, std::string* value) = 0;
   virtual bool Get(HttpHeaderKey key, std::string* value) = 0;
 };
+
+std::unique_ptr<HttpHeader> NewHttpHeader();
 
 }  // namespace ztl
 

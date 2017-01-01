@@ -19,7 +19,7 @@ make
 echo
 
 echo "Testing..."
-make test
+./ztl_test
 echo
 
 cd ../${SCRIPT_DIR}
