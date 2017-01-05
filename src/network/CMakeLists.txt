@@ -4,7 +4,10 @@ INCLUDE_DIRECTORIES("${CMAKE_SOURCE_DIR}/contrib/googletest-src/googletest/inclu
 
 SET(network_src_files
     http_header.h
-    http_header.cc)
+    http_header.cc
+    http_line.hh
+    http_line.cc
+)
 
 SET(network_test_src_files
     http_header_test.cc)
